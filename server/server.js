@@ -1,5 +1,5 @@
 const express = require('express')
-const morgan = require('morgan')
+const logger = require('morgan')
 const helmet = require('helmet')
 
 const server = express()
@@ -12,7 +12,7 @@ server.use(express.json())
 server.use('/actions', actionsRouter)
 server.use('/projects', projectRouter)
 
-server.use(morgan('dev'))//does logging
+server.use(logger('dev'))//does logging
 server.use(helmet())///security headers
 
 server.get('/', (req, res) => {
